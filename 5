@@ -1,0 +1,156 @@
+#include<stdio.h>
+#include<string.h>
+//int main()
+//{
+//	/*char arr1[] = "bit";
+//	char arr2[20] = { "#########" };
+//	strcpy(arr2, arr1);
+//	printf("%s\n", arr2);*/
+//	//char arr[] = "hello word";
+//	//memset(arr, '*', 5);//意思是把arr的前5个换成*。
+//	//printf("%s\n", arr);
+//	//return 0;
+//
+//
+//}
+//int get_max(int x, int y)
+//{
+//	if (x > y)
+//		return x;
+//	if (x < y)
+//		return y;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int max = get_max(a, b);
+//	printf("%d\n", max);
+//}
+//void t(int x, int y)
+//{
+//	int tmp = 0;
+//	tmp = x;
+//	x = y;
+//	y = tmp;
+//}
+//void p(int* a, int* b)形参
+//{
+//	int tmp = 0;
+//	tmp = *a;
+//	*a = *b;
+//	*b = tmp;
+//}
+//int main()    交换两个整形常量
+//{
+//	int a = 10;
+//	int b = 20;
+//	t(a, b);实参可以是常量变量表达式函数
+//	printf("%d,%d\n", a, b);//值传递，无返回。
+//	p(&a, &b);//地址传递值改变。
+//	printf("%d,%d", a, b);
+//}
+//#include<math.h>
+//int s(int i) {
+//	int p = 0;
+//	for (p = 2;p <= sqrt(i);p++)
+//	{
+//		if (i % p == 0)
+//			return 0;
+//	}
+//	return 1;
+//}
+//int main()
+//{
+//	int i = 0;
+//	for (i = 100;i <= 200;i++)
+//	{
+//		if (s(i) == 1)
+//			printf("%d\n", i);
+//	}
+//	return 0;
+//}
+//int binary_search(int arr[], int p,int sz)
+//{
+//	
+//	int left = 0;
+//	int right = sz - 1;
+//	
+//	while (left <= right)
+//	{
+//		int mid = (right + left) / 2;
+//		if (arr[mid] < p)
+//		{
+//			left = mid + 1;
+//		}
+//		else if (arr[mid] > p)
+//		{
+//			right = mid - 1;
+//		}
+//		else
+//		{
+//			return mid;
+//		}
+//	}
+//	return -1;
+//}
+//int main() 二分查找
+//{
+//	int arr[] = { 0,1,2,3,4,5,6,7,8,9 };
+//	int k = 7;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int ret=binary_search(arr,k,sz);
+//	if (ret == 1)
+//	{
+//		printf("找不到\n");
+//	}
+//	else
+//	{
+//		printf("找到了\n");
+//	}
+//	return 0;
+//}
+//void Add(int* p)
+//{
+//	(*p)++;
+//}
+//int main()
+//{
+//	int num = 0;
+//	Add(&num);
+//	printf("num=%d\n", num);
+//	Add(&num);
+//	printf("num=%d\n", num);
+//	Add(&num);
+//	printf("num=%d\n", num);
+//	return 0;
+//}
+//《《《嵌套调用》》》
+//int v(int a)
+//{
+//	a++;
+//}
+//int main()
+//{
+//	int i = 0;
+//	int b = 1;
+//    
+//	for (i = 0;i < 3;i++)
+//	{
+//		v(b);
+//
+//	}
+//}
+//《《《链式访问》》》
+//int main()
+//{
+//	int len = 0;
+//	len = strlen("abc");
+//	printf("%d\n", len);
+//	printf("%d\n", strlen("abc"));
+//}
+//int main()
+//{
+//	printf("%d", printf("%d", printf("%d", 43)));printf的返回值是打印的个数。43是2个数返回2，2是一个数返回1，结果就是4321.
+//	return 0;
+//}
