@@ -1,0 +1,94 @@
+//#define _CRT_SECURE_NO_WARNINGS 1
+//#include<stdio.h>
+//#include<string.h>
+// 《《《汉诺塔》》》
+//int hanoi(int n, char a, char b, char c)
+//{
+//	int move(char, int, char);
+//	if (n == 1)
+//	 move(a, 1, c);
+//	else
+//	{
+//		hanoi(n - 1, a, b, c);
+//		move(a, n, c);
+//		hanoi(n - 1, b, a, c);
+//	}
+//	return 0;
+//}
+//int move(char a,int n,char c)
+//{
+//	static int k = 1;
+//	printf("%2d:%3d %c   %c\n", k, n, a,c);
+//	if (k++ % 3 == 0)
+//		printf("\n");
+//	return 0;
+//
+//}
+//int main()
+//{
+//	int n = 0;
+//	int counter = 0;
+//	printf("输入盘的个数\n");
+//	scanf("%d", &n);
+//	printf("\n");
+//	counter = hanoi(n, 'A', 'B', 'C');
+//	return 0;
+//}#include<stdio.h>
+#include<string.h>
+//int main()
+//{
+//	int arr[10];
+//	char arr2[] = { 1,2,3,4,5 };
+//	int n = 0;
+//	int b = 0;
+//	//char ch[];
+//	n = sizeof(arr2);//=6
+//	b = strlen(arr2);//=5
+//	char arr3[] =  "efd" ;
+//	char arr4[] = { 'e','f','d' };
+//	printf("%d\n", sizeof(arr3));//=4
+//	printf("%d\n", sizeof(arr4));//=3
+//	printf("%d\n", strlen(arr3));//=3
+//	printf("%d\n", strlen(arr4));//=随机值
+//	//一维数组在内存中存储以16进制差4
+//	//二维数组也是连续的下一行接在上一行的后面也是差4
+//
+//	return 0;
+//}《《《冒泡排序》》》
+//void bubble_sort(int arr[],int sz)
+//{
+//	int i = 0;
+//	for (i = 0;i < sz - 1;i++)
+//	{
+//		int j = 0;
+//      int flag=1;
+//		for (j = 0;j < sz - 1 - i;j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//              flag=0;
+//			}
+//		}
+//      if(flag==1)
+//      {
+//             break;
+//       }
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1 };
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr,sz);
+//	for (i = 0;i < sz;i++)
+//	{
+//		printf("%d", arr[i]);
+//	}
+//	return 0;
+//}
+//sizeof(数组名) 数组名表示整个数组    计算的是整个数组的大小、单位是字节。
+//&数组名  取的是整个数组的地址 表示这个数组开始的地址
