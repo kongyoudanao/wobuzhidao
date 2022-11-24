@@ -1,0 +1,120 @@
+#define _CRT_SECUSE_NO_WARNINGS 1
+#include<stdlib.h>
+#include<stdio.h>
+//typedef struct stu
+//{
+//	char name[20];
+//	short age;
+//	char tele[12];
+//	char sex[10];
+//}stu;
+//void print1(stu st)
+//{
+//	printf("name:%s\n",st.name);
+//	printf("age:%d\n",st.age);
+//	printf("tele:%s\n",st.tele);
+//	printf("sex:%s\n",st.sex);
+//}
+//void print2(stu* p)
+//{
+//	printf("name:%s\n",p->name );
+//	printf("age:%d\n", p->age);
+//	printf("tele:%s\n",p->tele);
+//	printf("sex:%s\n", p->sex);
+//}
+//int main()
+//{
+//	stu s = { "lisi",40,"123123","nan" };
+//	print1(s);
+//	print2(&s);
+//
+//}调试
+//F10 F11
+// 栈区 先使用高地址的空间 再使用低地址的空间。
+// 数组 随着下标的增长地址是由低到高变化。
+// VC6.0的环境下<=10死循环
+// gcc 编译器环境下 <=11死循环
+// vs2013<=12死循环
+// 堆区 静态区
+//int main()
+//{
+//	int i = 0;
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,0};
+//	for (i = 0;i <= 12;)
+//	{
+//		printf("hehe\n");
+//		arr[i] = 0;
+//		i++;
+//	}
+//	system("pause");
+//	return 0;
+//}
+//Debug版本跟Release不一样。
+//Release有优化。
+#include<string.h>
+//void my_strcpy(char* arr, char* arr2)
+//{
+//	while (*arr2 != '\0')
+//	{
+//		*arr = *arr2;
+//		arr2++;
+//		arr++; 
+//	}
+//	*arr = *arr2;
+//}
+//int main()
+//{
+//	char arr[] = "########";
+//	char arr2[] = "bit";
+//	my_strcpy(arr, arr2);
+//	printf("%s", arr);
+//	return 0;
+//}优化后
+#include<assert.h>//引用断言的头文件
+//char* /*为了返回目的地地址*/ my_strcpy(char* arr, const char* arr2)//const 不可更改   出现问题可以报错。
+//{
+//	char* ret = arr;//为了返回
+//	assert(arr != NULL);//断言
+//	assert(arr2 != NULL);
+//	while (*arr++=*arr2++)//优化后  把arr2字符串拷贝到arr的空间包括 ‘\0'.
+//	{
+//		;
+//	}
+//	return ret;//为了返回
+//}
+//int main()
+//{
+//	char arr[] = "########";
+//	char arr2[] = "bit"; 
+//	my_strcpy(arr, arr2);
+//	printf("%s", my_strcpy(arr, arr2)/*优化后*/);
+//	return 0;
+//}
+//int main()
+//{
+//	const int n = 0;
+//	int* p = &n;
+// int* const p = &n;const放在*右边，修饰的指针变量p本身 p不能被改变。
+//	const int* p = &n;const放在*左边时，修饰的是*p，也就是不能通过p改变*p（n）的值
+//	*p = 20;
+//
+//}满分的strlen函数
+//int my_strlen(const char* arr)
+//{
+//	int count = 0;
+//	assert(arr != NULL);
+//	while (*arr != '\0')
+//	{
+//		count++;
+//		arr++;
+//	}
+//	return count;
+//
+//}
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	int len = my_strlen(arr);
+//	printf("%d\n", len);
+//	return 0;
+//}
