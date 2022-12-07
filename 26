@@ -1,0 +1,252 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<errno.h>
+
+//int main()
+//{
+//	//向内存申请10个整形空间
+//	int* p = (int*)malloc(10 * sizeof(int));
+//	if (p == NULL)
+//	{
+//		//打印错误原因的一个方式
+//		printf("%s", strerror(errno));
+// return 0;
+//	}
+//	else
+//	{
+//		//正常使用的空间
+//		int i = 0;
+//		for (i = 0;i < 10;i++)
+//		{
+//			*(p + i) = i;
+//		}
+//		for (i = 0;i < 10;i++)
+//		{
+//			printf("%d ", *(p + i));
+//		}
+//	}
+//	//当动态申请的空间不再使用的时候
+//	//就应该还给操作系统
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+//int main()
+//{
+//	//malloc(10*sizeof(int));
+//	int* p = (int*)calloc(10, sizeof(int));//开辟空间并初始化值为零
+//	if (p == NULL)
+//	{
+//		//打印错误原因的一个方式
+//		printf("%s", strerror(errno));
+// return 0;
+//	}
+//	else
+//	{
+//		int i = 0;
+//		for (i = 0;i < 10;i++)
+//		{
+//			printf("%d ", *(p + i));
+//		}
+//	}
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+//realloc
+//调整动态开辟内存空间的大小
+
+//int main()
+//{
+//	int* p = (int*)malloc(20);
+//	if (p == NULL)
+//	{
+//		printf("%d", strerror(errno));
+//		return 0;
+//	}
+//	else
+//	{
+//		int i = 0;
+//		for (i = 0;i < 5;i++)
+//		{
+//			*(p + i) = i;
+//		}
+//	}
+//	//20个字节空间不够用
+//	//想开辟40个字节的空间
+//
+//	//realloc使用注意事项
+//	//1.如果p指向的空间之后有足够的内存空间可以以追加，则直接追加
+//	//2.如果p指向的空间之后的内存空间不足，则重新寻找一个新的内存区域，开辟一个新的满足需求的内存空间，并拷贝原来的数据，释放旧内存空间，
+//	//  最后返回新的空间地址
+//	//3.得用一个新的变量来接受realloc函数的返回值
+//	int* ptr = (int*)realloc(p, 40);
+//	if (ptr != NULL)
+//	{
+//		p = ptr;
+//	}
+//	else
+//	{
+//		printf("%s", strerror(errno));
+//		return 0;
+//	}
+//	int i = 0;
+//	for (i = 5;i < 10;i++)
+//	{
+//		*(p + i) = i;
+//	}
+//	for (i = 0;i < 10;i++)
+//	{
+//		printf("%d", *(p + i));
+//	}
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+
+//1.错误  对空指针进行解引用
+//int  main() 
+//{
+//	int* p = (int*)malloc(40);
+//	//如果malloc开辟失败 p就会被赋值NULL 对*（NULL+i）  解引用操作就导致随机地址的内容被改变
+//	*p = 0;
+//	int i = 0;
+//	for (i = 0;i < 10;i++)
+//	{
+//		*(p + i) = i;
+//	}
+//	free(p);
+//	p = NULL;
+//}
+//2.错误  对动态开辟的空间越界访问
+//int main()
+//{
+//	int* p = (int*)malloc(5 * sizeof(int));
+//	if (p == NULL)
+//	{
+//		return 0;
+//	}
+//	else
+//	{
+//		int i = 0;
+//		for (i = 0;i < 10;i++)//本来开辟了5个整形的空间  却使用10个整形的空间 导致越界访问
+//		{
+//			*(p + i) = i;
+//		}
+//	}
+//	return 0;
+//}
+//3.错误  对非动态开辟内存free
+//int main()
+//{
+//	int i = 0;
+//	int* p = &i;
+//	*p = 20;
+//	free(p);//i是非动态开辟空间 释放i会导致崩溃卡死
+//	p = NULL;
+//	return 0;
+//}
+//int main()
+//{
+//	int* p = (int*)realloc(NULL, 40);//等价于malloc
+//	return 0;
+// }
+//4.错误  对动态开辟的空间进行释放一部分
+//int main()
+//{
+//	int* p = (int*)malloc(5 * sizeof(int));
+//	if (p == NULL)
+//	{
+//		return 0;
+//	}
+//	int i = 0;
+//	for (i = 0;i < 5;i++)
+//	{
+//		*p++ = i;
+//	}
+//	free(p);//p的位置已经改变   释放只能从开始位置释放
+//	p = NULL;
+//	return 0;
+//}
+//5.错误  对同一块动态内存多次释放
+//int main()
+//{
+//	int* p = (int*)malloc(5 * sizeof(int));
+//	if (p == NULL)
+//	{
+//		return 0;
+//	}
+//	free(p);//不能多次释放
+//	p == NULL;//p赋值空指针会使后面的free（p)失效
+//	free(p);
+//	return 0;
+//}
+//6.错误  动态开辟忘记释放内存（内存泄露）
+//int main()
+//{
+//	while (1)
+//	{
+//		malloc(1);//会一直占用内存
+//	}
+//	return 0;
+//}
+
+//void get(char* p)
+//{
+//	p = (char*)malloc(100);
+//}
+//void test(void)
+//{
+//	char* str = NULL;
+//	get(str);//str以值传递传过去。返回后找不到p
+//	strcpy(str, "hellow world");
+//	printf(str); 
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//改正1
+//void get(char** p)
+//{
+//	*p = (char*)malloc(100);
+//}
+//void test(void)
+//{
+//	char* str = NULL;
+//	get(&str);
+//	strcpy(str, "hellow world");
+//	printf(str);
+//	free(str);
+//	str = NULL;
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//改正2
+//char* get(char* p)
+//{
+//	p = (char*)malloc(100);
+//	return p;
+//}
+//void test(void)
+//{
+//	char* str = NULL;
+//	str=get(str);
+//	strcpy(str, "hellow world");
+//	printf(str);
+// free(str);
+// str=NULL;
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
