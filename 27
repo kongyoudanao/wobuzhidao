@@ -1,0 +1,117 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+//char* get(void)
+//{
+//	char p[] = "hellow world";
+//	return p;
+//}
+//void test(void)
+//{
+//	char* str = NULL;
+//	str = get();
+//	printf(str);
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+#include<stdlib.h>
+#include<string.h>
+//void get(char** p, int num)
+//{
+//	*p = (char*)malloc(num);
+//}
+//void test(void)
+//{
+//	char* str = NULL;
+//	get(&str, 100);
+//	strcpy(str, "hello");
+//	printf(str);
+//	//free(str);改进的方法
+//	//str=NULL;
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//void test(void)
+//{
+//	char* str = (char*)malloc(100);
+//	strcpy(str, "hello");
+//	free(str);
+//	//str = NULL;改正
+//	if (str != NULL)
+//	{
+//		strcpy(str, "world");
+//		printf(str);
+//	}
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//struct  s
+//{
+//	int a;
+//	int arr[];//柔性数组——未知大小——数组的大小可以调整——结构中最后一个元素允许是未知大小的数组
+//};
+//int main()
+//{
+//	struct s* p = (struct s*)malloc(sizeof(struct s) + 5 * sizeof(int));// s里面24个字节
+//	p->a = 1;
+//	int i = 0;
+//	for (i = 0;i < 5;i++)
+//	{
+//		p->arr[i] = i;
+//	}
+//	struct s* ptr = (struct s*) realloc(p, 44);// s里面加了20个字节
+//	if (ptr != NULL)
+//	{
+//		p = ptr;
+//	}
+//	for (i = 5;i < 10;i++)
+//	{
+//		p->arr[i] = i;
+//	}
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+
+
+//自己开辟等于柔性数组
+//struct S
+//{
+//	int a;
+//	int* arr;
+//};
+//int main()
+//{
+//	struct S* ps = (struct S*)malloc(sizeof(struct S));
+//	ps->arr =(int*) malloc(5 * sizeof(int));
+//	int i = 0;
+//	for (i = 0;i < 5;i++)
+//	{
+//		ps->arr[i] = i;
+//	}
+//	
+//	int* ptr = (int*)realloc(ps->arr, 10 * sizeof(int));
+//	if (ptr != NULL)
+//	{
+//		ps->arr = (int*)ptr;
+//	}
+//	for (i = 5;i < 10;i++)
+//	{
+//		ps->arr[i] = i;
+//	}
+//	free(ps->arr);
+//	ps->arr = NULL;
+//	free(ps);
+//	ps = NULL;
+//	return 0;
+//}
