@@ -1,0 +1,80 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<errno.h>
+#include<string.h>
+
+//int main()
+//{
+//	int a = 100;
+//	//FILE*pf=fopen("test.txt","wb");
+//	//fwrite(&a,4,1,pf);
+//	//fclose(pf);
+//	//pf=NULL;
+//	return 0;
+//}
+//int main()
+//{
+//	相对路径
+//	fopen("c:\202\84\test.c","r");
+//	绝对路径
+//	fopen("c:\\202\\84\\test.c","r");
+//	 .. 表示上一级路径
+//	 .  表示当前路径
+//	//FILE*pf=fopen("test.txt","r");
+//	if (pf == NULL)
+//	{
+//		printf("%s\n",strerror(errno))
+//	}
+//	 关闭文件
+//	fclose(pf);
+//	pf==NULL;
+//	return 0;
+//}
+//int main()
+//{
+//	//	//FILE*pf=fopen("test.txt","w");
+//	//if (pf == NULL)
+//	//{
+//	//	printf("%s\n",strerror(errno))
+//    //  return 0;
+//	// }
+//	// 写文件
+//	//fputc('b', pf);
+//	//fputc('t', pf);
+//	//fputc('i', pf);
+//	// 
+//	//fclose(pf);
+//	//pf == NULL;
+//	return 0;
+//}
+//int main()
+//{
+//	//	//FILE*pf=fopen("test.txt","r");
+////if (pf == NULL)
+////{
+////	printf("%s\n",strerror(errno))
+////  return 0;
+//// }
+//	//读文件
+//	printf("%c", fgetc(pf));
+//	printf("%c", fgetc(pf));
+//	printf("%c", fgetc(pf));
+//	//fclose(pf);
+////	//pf == NULL;
+//	return 0;
+//}
+// 从键盘输入
+// 输出到屏幕
+// 键盘跟屏幕都是外部设备
+// 
+// 键盘是标准输入设备 stdin
+// 屏幕是标准输出设备 stdout
+// 是一个程序默认打开的两个流设备
+// 
+//int main()
+//{
+//	int ch = fgetc(stdin);
+//	fputc(ch, stdout);
+//
+//	return 0;
+//}
