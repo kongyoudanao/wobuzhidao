@@ -1,0 +1,68 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+//int main()
+//{
+//	printf("%s", __FILE__);//代码所在文件的位置
+//	printf("%s", __LINE__);//代码所在行号
+//	printf("%s", __DATE__);//日期
+//	printf("%s", __TIME__);//时间
+//
+//	//写日志文件
+//	int i = 0;
+//	int arr[10] = { 0 };
+//	FILE* pf = fopen("log.txt", "w");
+//	for (i = 0;i < 10;i++)
+//	{
+//		arr[i] = i;
+//		fprintf(pf, "%s %s %s %s", __FILE__, __LINE__, __DATE__, __TIME__);
+//	}
+//	fclose(pf);
+//	pf = NULL;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d", arr[i]);
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	printf("%d\n", __STDC__);
+//	return 0;
+//}
+//#define DOUBULE(X) ((X)+(X))
+//int main()
+//{
+//	int a = 5;
+//	int ret = 10 * DOUBULE(a);
+//	printf("%d\n", ret);
+//
+//	return 0;
+//}
+//int main()
+//{
+//	printf("hello world\n");
+//	printf("hello""world\n");
+//	printf("hel""lo""world\n");
+//	return 0;
+//}
+//#define PRINT(X) printf("hello"#X"world %d\n",X)
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	PRINT(a);
+//	//printf("hello""a""world %d\n",a)
+//	PRINT(b);
+//	//printf("hello""b""world %d\n",b)
+//	return 0;
+//}
+//#define CAT(X,Y) X##Y
+//int main()
+//{
+//	int c53 = 100;
+//	printf("%d\n", CAT(c, 53));
+//	/*printf("%d\n", c##53);
+//	printf("%d\n", c53);*/
+//	return 0;
+//}
