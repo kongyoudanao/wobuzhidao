@@ -1,0 +1,162 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+//宏的副作用
+//#define MAX(X,Y) ((X)>(Y)?(X):(Y))
+//int main()
+//{
+//	int a = 10;
+//	int b = 11;
+//	int max = MAX(a++, b++);
+//	//实际效果
+//	//int max = ((a++) > (b++) ? (a++) : (b++));   有副作用 a 与 b 被改变
+//	printf("%d\n", max);
+//	printf("%d\n", a);
+//	printf("%d\n", b);
+//	return 0;
+//}
+//宏的不管传过来的参数的类型
+//不同类型的函数需要定义
+//#define MAX(X,Y) ((X)>(Y)?(X):(Y))
+//float Max(float a, float b)//函数有一定的工作时间
+//{
+//	return ((a) > (b) ? (a) : (b));
+//}
+//int MaX(int a,int b)
+//{
+//	return ((a) > (b) ? (a) : (b));
+//}
+//int main()
+//{
+//	int ab = 10;
+//	int bb = 20;
+//	float a = 0.02;
+//	float b = 0.21;
+//	float mAx = Max(a, b);
+//	float max = MAX(a, b);
+//	printf("%f\n", max);
+//	return 0;
+//}
+//#define SIZEOF(TYPE) sizeof(TYPE)
+//int main()
+//{
+//	int ret = SIZEOF(int);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+//#include<stdlib.h>
+//#define MALLOC(num,type) (type*)malloc(num*sizeof(type))
+//int main()
+//{
+//	int* p = (int*)malloc(10 * sizeof(int));
+//	int* p = MALLOC(10, int);
+//	return 0;
+////}
+//#define MAX 100
+//#undef MAX//取消MAX的宏定义
+// 
+// //条件编译
+//#define DEBUG//定义
+//#ifdef DEBUG//如果定义才会打印MAX  ，没有定义不会打印
+//       printf("MAX")
+//#endif
+
+//#if （常量表达式）//为1就执行为0就不执行。
+// printf("max");
+//#endif
+//
+//int main()
+//{
+//#if 1==1  //第一种情况
+//	printf("11");
+//#elif 1==2  //第二种情况
+//	printf("22");
+//#else  //以上都不满足
+//	printf("33");
+//#endif
+//	return 0;
+//}
+//#define DEBUG
+//int main()
+//{
+//#if defined(DEBUG)//如果定义过DEBUG就执行打印
+//	printf("hah");
+//#endif // defined(DEBUG)
+////等价于
+// //#ifdef DEBUG
+//
+//#endif // DEBUG
+// 
+// 相反的
+// #if !defined(DEBUG)
+// 
+// #ifndef DEBUG
+//	return 0;
+//}
+//#pragma once//防止头文件被多次引用造成重复
+//#pragma pack()//对齐字节
+
+
+//#include<stddef.h>
+//struct S
+//{
+//	char c1;
+//	int a;
+//	char c2;
+//};
+//int main()
+//{
+//	printf("%d\n", offsetof(struct S, c1));//计算偏移量。
+//	printf("%d\n", offsetof(struct S, a));
+//	printf("%d\n", offsetof(struct S, c2));
+//	return 0;
+//}
+// 
+//用宏模拟offsetof计算偏移量
+//struct S
+//{
+//	char c1;
+//	int a;
+//	char c2;
+//};
+//#define OFFSETOF(struct_name,member_name) (int)&(((struct_name*)0)->member_name)
+//int main()
+//{
+//	printf("%d\n", OFFSETOF(struct S, c1));
+//	printf("%d\n", OFFSETOF(struct S, a));
+//	printf("%d\n", OFFSETOF(struct S, c2));
+//	return 0;
+//}
+//#include<string.h>
+//int amin()
+//{
+//	unsigned char puc[4];
+//	struct tagPIM
+//	{
+//		unsigned char uc1;
+//		unsigned char uc2 : 1;
+//		unsigned char uc3 : 2;
+//		unsigned char uc4 : 3;
+//	}*ps;
+//	ps = (struct tagPIM*)puc;
+//	memset(puc, 0, 4);
+//	ps->uc1 = 2;
+//	ps->uc2 = 3;
+//	ps->uc3 = 4;
+//	ps->uc4 = 5;
+//	printf("%02x %02x %02x %02x\n", puc[0], puc[1], puc[2], puc[3]);
+//	return 0;
+//}
+//int main()
+//{
+//	union
+//	{
+//		short k;
+//		char i[2];
+//	}*s,a;
+//	s = &a;
+//	s->i[0] = 0x39;
+//	s->i[1] = 0x38;
+//	printf("%x\n", a.k);
+//	return 0;
+//}
