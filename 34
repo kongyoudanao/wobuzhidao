@@ -1,0 +1,154 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+//#include<string.h>
+//int main()
+//{
+//	char c[10000] = { 0 };
+//	scanf("%s", &c);
+//	int i = 0;
+//	int a = 0;
+//	int b = 0;
+//	for (i = 0;i < strlen(c);i++)
+//	{
+//		if (c[i] == 'A')
+//		{
+//			a++;
+//		}
+//		if (c[i] == 'B')
+//		{
+//			b++;
+//		}
+//
+//	}
+//	if (a > b)
+//	{
+//		printf("A");
+//	}
+//	else if(a<b)
+//	{
+//		printf("B");
+//	}
+//	else
+//	{
+//		printf("E");
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	int i = 0;
+//	int b[50] = { 0 };
+//	for (i = 0;i < a;i++)
+//	{
+//		scanf("%d", &b[i]);
+//	}
+//	for (i = 0;i < a;i++)
+//	{
+//		int c = 0;
+//		int d = 0;
+//		for(d=i;d<a;d++)
+//		{
+//			if (b[i] < b[d])
+//			{
+//				c = b[i];
+//				b[i] = b[d];
+//				b[d] = c;
+//			}
+//		}
+//		
+//	}
+//	for (i =0 ;i < 5;i++)
+//	{
+//		printf("%d ", b[i]);
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a, b, c;
+//	float d;
+//	scanf("%f %d %d %d", &d, &a, &b, &c);
+//	if (a == 11 & b == 11)
+//	{
+//		printf("%f\n", (d * 0.7 - c * 50) > 0 ? (d * 0.7 - c * 50) : 0);
+//	}
+//	else if (a == 12 && b == 12)
+//	{
+//		printf("%f\n", (d * 0.8 - c * 50) > 0 ? (d * 0.8 - c * 50) : 0);
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a, b;
+//	scanf("%x %o", &a, &b);
+//	printf("%d\n", a + b);
+//	return 0;
+//}
+//int main()
+//{
+//	int i=0;
+//	float sum = 0;
+//	for (i = 0;i < 5;i++)
+//	{
+//		int c = 0;
+//		scanf("%d", &c);
+//		sum += (float)c;
+//	}
+//	printf("%.1f\n", sum/5);
+//	return 0;
+//}
+//int main()
+//{
+//	printf("Name    Age    Gender\n");
+//	printf("---------------------\n");
+//	printf("Jack    18     man   \n");
+//	return 0;
+//}
+//int main()
+//{
+//	printf("i lost my cellphone!\n");
+//	return 0;
+//}
+//int main()
+//{
+//	int a, b, c;
+//	scanf("%d%d%d", &a, &b, &c);
+//	if (c <= a * b)
+//	{
+//		float d = (float)c / (float)b;
+//		if ((d - (int)d) == 0)
+//		{
+//			
+//			printf("%d", a-(int)d);
+//		}
+//		else if ((d - (int)d) > 0 && (d - (int)d) < 1)
+//		{
+//			printf("%d", a - (int)d - 1);
+//		}
+//
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	float a[3] = { 0 };
+//	int i = 0;
+//	float p = 0;
+//	for (i = 0;i < 3;i++)
+//	{
+//		scanf("%f", &a[i]);
+//		p += a[i];
+//	}
+//	printf("%.2f %.2f", p, p / 3.0);
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	printf("%d %d %d", a / 3600, (a % 3600) / 60, a % 3600 % 60);
+//	return 0;
+//}
