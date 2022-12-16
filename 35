@@ -1,0 +1,174 @@
+#define _CRT_SECURE_NO_WARNINS 1
+#include<stdio.h>
+
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	if (140<=a)
+//	{
+//		printf("Genius");
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a;
+//	while (scanf("%d", &a) != EOF)
+//	{
+//		if (a > 90 && a < 100)
+//		{
+//			printf("Perfect");
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a;
+//	while (scanf("%d",&a)!=EOF)
+//	{
+//		if (60 <= a) 
+//		{
+//			printf("Pass");
+//		}
+//		else
+//		{
+//			printf("Fail");
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a;
+//	while (scanf("%d",&a)!=EOF)
+//	{
+//		if (a % 2 == 1)
+//		{
+//			printf("Odd\n");
+//		}
+//		else if (a % 2 == 0)
+//		{
+//			printf("Even\n");
+//		}
+//		//printf("%s\n", a % 2 == 1 ? "Odd" : "Even");
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a, b, c;
+//	scanf("%d %d %d", &a, &b, &c);
+//	a = (a > b ? a : b);
+//	c = (a > c ? a : c);
+//	printf("%d", c);
+//
+//	return 0;
+//}
+//int main()
+//{
+//	char a = 0;
+//	while (scanf(" %c\n", &a) != EOF)//%c前面加了一个空格   不然在再一次读取的时候上一次的回车也会被当作字符
+//	{
+//		if (a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u' || a == 'A' || a == 'E' || a == 'I' || a == 'O' || a == 'U')
+//		{
+//			printf("Vowel\n");
+//
+//		}
+//		else
+//		{
+//			printf("Consonant\n");
+//
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	char a = 0;
+//	while (scanf(" %c\n", &a) != EOF)
+//	{
+//		if (a >= 'a' && a <= 'z' || a >= 'A' && a <= 'Z')
+//		{
+//			printf("%c is an alphabet.\n", a);
+//		}
+//		else
+//		{
+//			printf("%c is not an alphabet.\n", a);
+//		}
+//	}
+//
+//	return 0;
+//}
+//int main()
+//{
+//	char a = 0;
+//	while (scanf(" %c", &a) != EOF)
+//	{
+//		if (a >= 'a' && a <= 'z')
+//		{
+//			a -= 32;
+//			printf("%c\n", a);
+//		}
+//		else if (a >= 'A' && a <= 'Z')
+//		{
+//			a += 32;
+//			printf("%c\n", a);
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int t = 0;
+//	while (scanf("%d", &t)!=EOF)
+//	{
+//		if (t > 0)
+//		{
+//			printf("1\n");
+//
+//		}
+//		else if (t == 0)
+//		{
+//			printf("0.5\n");
+//		}
+//		else if (t < 0)
+//		{
+//			printf("0\n");
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a, b, c;
+//	while (scanf("%d %d %d",&a,&b,&c)!=EOF)
+//	{
+//		
+//		if((a + b) > c&& (a + c) > b&& (c + b) > a)
+//		{
+//			if (a == b||b==c||a==c )
+//			{
+//				if (a == b && b == c)
+//				{
+//					printf("Equilateral triangle!\n");
+//					continue;
+//				}
+//				printf("Isosceles triangle!\n");
+//				continue;
+//			}
+//			else
+//			{
+//				printf("Ordinary triangle!\n");
+//				continue;
+//			}
+//		}
+//		else
+//		{
+//			printf("Not a triangle!\n");
+//			continue;
+//		}		
+//	}
+//	return 0;
+//}
