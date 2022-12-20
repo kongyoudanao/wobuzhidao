@@ -1,0 +1,307 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+//int main()
+//{
+//	int a = 0;
+//	while (scanf("%d", &a) != EOF)
+//	{
+//		float b,c=100.0,d,e;
+//		for (int i = 0;i < a;i++)
+//		{
+//			while (scanf("%f ",&b)!=EOF)
+//			{
+//				d = (d > b ? d : b);
+//				c = (c < b ? c : b);
+//				e += b;
+//			}
+//		}
+//		printf("%0.2f %.2f %.2f\n", d, c, e / a);
+//	}
+//	return 0;
+//}
+//#include<string.h>
+//int main()
+//{
+//	char a[] = { 0 };
+//	char b[] = { 0 };
+//	while (scanf("%s %s",&a,&b)!=EOF)
+//	{
+//		if (strcmp(a, b) == 1)
+//		{
+//			printf("same\n");
+//		}
+//		else
+//		{
+//			printf("different\n");
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int m, n;
+//	while (scanf("%d %d",&m,&n)!=EOF)
+//	{
+//		int a[10][10] = { 0 };
+//		int c = 0;
+//		for (int i = 0;i < m;i++)
+//		{
+//			for (int j = 0;j < n;j++)
+//			{
+//				scanf("%d ", &a[i][j]);
+//				if (a[i][j] > 0)
+//				{
+//					c+=a[i][j];
+//				}
+//			}
+//		}
+//		printf("%d\n", c);
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	int n = 0;
+//	while (scanf("%d ", &a) != EOF && n < 10)
+//	{
+//		n++;
+//		printf("%d ", a);
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a;
+//	int n = 0;
+//	while (scanf(" %d", &a) != EOF && n < 10)
+//	{
+//		int b[10];
+//		b[n] = a;
+//		if (n == 9)
+//		{
+//			for (int i = 9;i >= 0;i--)
+//			{
+//				printf("%d ", b[i]);
+//			}
+//		}
+//		n++;
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a;
+//	int n = 0;
+//	int i = 0, j = 0;
+//	while (scanf("%d ", &a) != EOF && n < 10)
+//	{
+//		if (a != 0)
+//		{
+//			a > 0 ? i++ : i++;
+//		}
+//		if (n == 9)
+//		{
+//			printf("positive:%d\nnegative:%d", i, j);
+//		}
+//		n++;
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	while (scanf("%d",&a)!=EOF)
+//	{
+//		int arr[51] = { 0 };
+//		int b = 0;
+//		for (int i = 0;i < a;i++)
+//		{
+//			scanf("%d ", &arr[i]);
+//			b += arr[i];
+//		}
+//		printf("%d\n", b);
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	while (scanf("%d", &a) != EOF)
+//	{
+//		int arr[10001];
+//		int b = 0,c = 100;
+//		for (int i = 0;i < a;i++)
+//		{
+//			scanf("%d ", &arr[i]);
+//			b = (b > arr[i] ? b : arr[i]);
+//			c = (c < arr[i] ? c : arr[i]);
+//		}
+//		printf("%d\n", b - c);
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	while (scanf("%d", &a) != EOF)
+//	{
+//		int l = 0, m = 0, n = 0;
+//		int arr[50] = { 0 };
+//		for (int i = 0;i < a;i++)
+//		{
+//			scanf("%d", &arr[i]);
+//		}
+//		for (int j = 0;j < a-1;j++)
+//		{
+//			if ((arr[j] - arr[j + 1] > 0))
+//			{
+//				l++;
+//			}
+//			else if( (arr[j + 1] - arr[j] > 0))
+//			{
+//				m++;
+//			}
+//			else if ((arr[j] - arr[j + 1] == 0))
+//			{
+//				n++;
+//			}
+//		}
+//		if (l == a - 1 || m == a - 1 || n == a - 1)
+//		{
+//			printf("sorted\n");
+//		}
+//		else
+//		{
+//			printf("unsorted\n");
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	while (scanf("%d",&a)!=EOF)
+//	{
+//		int arr[51] = { 0 };
+//		int arr1[51] = { 0 };
+//		int n = 0;
+//		for (int i = 0;i < a;i++)
+//		{
+//			scanf("%d", &arr[i]);
+//		}
+//		int b = 0;
+//		scanf("%d", &b);
+//		for (int j = 0;j < a;j++)
+//		{
+//			if (arr[j] != b)
+//			{
+//				arr1[n] = arr[j];
+//				n++;
+//			}
+//		}
+//		for (int k = 0;k <= n;k++)
+//		{
+//			printf("%d ", arr1[k]);
+//		}
+//	}
+//}
+//int main()
+//{
+//	int a = 0;
+//	while (scanf("%d", &a) != EOF)
+//	{
+//		int arr[1000] = { 0 };
+//		for (int i = 0;i < a;i++)
+//		{
+//			scanf("%d", &arr[i]);
+//		}
+//		int n = 0;
+//		for (int j = 0;j < a;j++)
+//		{
+//			for (int k = j + 1;k < a;k++)
+//			{
+//				if (arr[j] == 0 && arr[k] == 0)
+//				{
+//					break;
+//				}
+//				if (arr[j] == arr[k])
+//				{
+//					arr[k] = 0;
+//					n++;
+//				}
+//			}
+//		}
+//		for (int l = 0;l < a;l++)
+//		{
+//			if (arr[l] == 0)
+//			{
+//				for (int m = l + 1;m < a;m++)
+//				{
+//					if (arr[m] != 0)
+//					{
+//						arr[l] = arr[m];
+//						arr[m] = 0;
+//						break;
+//					}
+//				}
+//			}
+//			if (l < a - n)
+//			{
+//				printf("%d ", arr[l]);
+//			}
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0, b = 0;;
+//	while (scanf("%d %d", &a, &b) != EOF)
+//	{
+//		int c, d;
+//		int arr[1001], brr[1001], crr[2002];
+//		for (int h = 0;h < a;h++)
+//		{
+//			scanf("%d", &c);
+//			arr[h] = c;
+//		}
+//		for (int i = 0;i < b;i++)
+//		{
+//			scanf("%d", &d);
+//			brr[i] = d;
+//		}
+//		int j = 0, k = 0, l = 0;
+//		for (;j < a && k < b;)
+//		{
+//			if (arr[j] < brr[k])
+//			{
+//				crr[l++] = arr[j++];
+//			}
+//			else
+//			{
+//				crr[l++] = brr[k++];
+//			}
+//		}
+//		if (j == a)
+//		{
+//			for (;k < b;k++)
+//			{
+//				crr[l++] = brr[k];
+//			}
+//		}
+//		else
+//		{
+//			for (;j < a;j++)
+//			{
+//				crr[l++] = arr[j];
+//			}
+//		}
+//		for (int i = 0;i < l;i++)
+//		{
+//			printf("%d ", crr[i]);
+//		}
+//	}
+//	return 0;
+//}
