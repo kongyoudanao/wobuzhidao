@@ -1,0 +1,220 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+//int main()
+//{
+//	int n = 0;int m=0;
+//	for (int i = 100;i < 1000;i++)
+//	{
+//		for (int j = 2;j < i;j++)
+//		{
+//			if (i % j == 0)
+//			{
+//				m++;
+//				break;
+//			}
+//		}
+//	}
+//	printf("%d", 1000 - 100 - m);
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	int arr[1001] = { 0 };
+//	for (int i = 0;i < a;i++)
+//	{
+//		int c = 0;
+//		scanf("%d", &c);
+//		arr[c] = c;
+//	}
+//	for (int i = 0;i < 1001;i++)
+//	{
+//		if (arr[i] != 0)
+//		{
+//			printf("%d", arr[i]);
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	int arr[101] = { 0 };
+//	for (int i = 0;i < a;i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	int b = 0;
+//	scanf("%d", &b);
+//	int c = 0;
+//	for (int j = 0;j < a;j++)
+//	{
+//		if (arr[j] == b)
+//		{
+//			c++;
+//		}
+//		if (j == a - 1)
+//		{
+//			printf("%d", c);
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	int b = a / 1000;
+//	int c = (a%1000)/100;
+//	int d = (a % 100) / 10;
+//	int e = a % 10;
+//	printf("%d%d%d%d\n", e, d, c, d);
+//	return 0;
+//}
+//int main()
+//{
+//	char a = 0;
+//	while (scanf("%c",&a)!=EOF)
+//	{
+//		if (a >= 'A' && a <= 'Z')
+//		{
+//			printf("%c\n", a + 32);
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	float a,b;
+//	while (scanf("%f %f",&a,&b)!=EOF)
+//	{
+//		if (a / (b * b) >= 18.5 && a / (b * b) <= 23.9)
+//		{
+//			printf("Normal\n");
+//		}
+//		else
+//		{
+//			printf("Abnormal\n");
+//		}
+//	}
+//}
+//int main()
+//{
+//	int a, b;
+//	while (scanf("%d %d",&a,&b)!=EOF)
+//	{
+//		if ((a - b) > 0)
+//		{
+//			printf("%d>%d\n", a, b);
+//		}
+//		else if((a-b)<0)
+//		{
+//			printf("%d<%d\n", a, b);
+//		}
+//		else if ((a - b) == 0)
+//		{
+//			printf("%d=%d\n", a, b);
+//		}
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	float a,b;
+//	while (scanf("%f %f",&a,&b)!=EOF)
+//	{
+//		if (a / (b * b) >= 18.5 && a / (b * b) <= 23.9)
+//		{
+//			printf("Normal\n");
+//		}
+//		else if(a / (b * b)<18.5)
+//		{
+//			printf("Underweight\n");
+//		}
+//		else if (a / (b * b) > 23.9 && a / (b * b) <= 27.9)
+//		{
+//			printf("Overweight\n");
+//		}
+//		else if(a / (b * b)>27.9)
+//		{
+//			printf("Obese\n");
+//		}
+//	}
+//}
+//int main()
+//{
+//	printf("printf(\"Hello world!\\n\");\n");
+//	printf("cout << \"Hello world!\" << endl\n");
+//	return 0;
+//}
+//int main()
+//{
+//	int arr[4] = { 0 };
+//	for (int i = 0;i < 4;i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	printf("%.f\n", (float)arr[0] * 0.2 + (float)arr[1] * 0.1 + (float)arr[2] * 0.2 + (float)arr[3] * 0.5);
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	for (int i = 0;i < a;i++)
+//	{
+//		printf("Happy new year!Good luck!\n");
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int arr[3] = { 0 };
+//	for (int i = 0;i < 3;i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	int max = arr[0] > arr[1] ? arr[0] > arr[2] ? arr[0] : arr[2] : arr[1] > arr[2] ? arr[1] : arr[2];
+//	printf("%d\n", max);
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	while (scanf("%d", &a) != EOF)
+//	{
+//		int b = 0;
+//		int arr[10][10] = { 0 };
+//		for (int i = 0;i < a;i++)
+//		{
+//			for (int j = 0;j < a;j++)
+//			{
+//				scanf("%d", &b);
+//				arr[i][j] = b;
+//			}
+//		}
+//		b = 0;
+//		for (int i = a - 1;i > 0;i--)
+//		{
+//			for (int j = 0;j < i;j++)
+//			{
+//				if (arr[i][j] == 0)
+//				{
+//					b++;
+//				}
+//			}
+//		}
+//		if (b == ((a - 1) * a) / 2)
+//		{
+//			printf("YES\n");
+//		}
+//		else
+//		{
+//			printf("NO\n");
+//		}
+//	}
+//	return 0;
+//}
