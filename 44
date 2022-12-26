@@ -1,0 +1,46 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+int main()
+{
+	long long a = 0;
+	while (scanf("%lld",&a)!=EOF)
+	{
+		int tmp = 0;
+		int ret = 0;
+		int nor = 0;
+		int con = 1;
+		int opo = 0;
+		int cer = 1;
+		int dlt = 0;
+		for (int i = 0;i < 500;i++) 
+		{
+			tmp = a % 10;
+			ret = a * i;
+			while (ret % 10 == tmp)
+			{
+				con *= 10;
+				ret /= 10;
+				opo += 1;
+			}
+			dlt = ret / con;
+			nor = dlt % 10;
+			while (dlt % 10 == nor)
+			{
+				opo += 1;
+				dlt /= 10;
+			}
+			while (ret!=0)
+			{
+				ret /= 10;
+				cer += 1;
+			}
+			if (cer == opo)
+			{
+				printf("%d", ret);
+				break;
+			}
+		}
+	}
+	return 0;
+}
