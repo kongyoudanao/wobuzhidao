@@ -1,0 +1,77 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+//int main()
+//{
+//	printf("Practice makes perfect!");
+//	return 0;
+//}
+//int main()
+//{
+//	float a, b, c;
+//	scanf("%f %f %f", &a, &b, &c);
+//	printf("%.2f %.2f", a + b + c, (a + b + c) / 3);
+//	return 0;
+//}
+//int main()
+//{
+//	int a, c, d;
+//	scanf("%d %d %d", &a, &c, &d);
+//	if ((a + c + d) / 3 >= 60)
+//	{
+//		printf("NO\n");
+//	}
+//	else
+//	{
+//		printf("YES\n");
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	int b, c, d;
+//	int e = 0;
+//	scanf("%d", &a);
+//	for (int i = 0;i < a;i++)
+//	{
+//		scanf("%d %d %d", &b, &c, &d);
+//		if ((b + c + d) / 3 < 60)
+//		{
+//			e += 1;
+//		}
+//	}
+//	printf("%d",e);
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	int b = 0;
+//	int max = 0;
+//	for (int i = 0;i < a;i++)
+//	{
+//		scanf("%d", &b);
+//		max=max > b ? max : b;
+//	}
+//	printf("%d", max);
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d", &a);
+//	int sum = 0;
+//	for (int i = a;i > 0;i--)
+//	{
+//		int tmp = 1;
+//		for (int j = i;j > 0;j--)
+//		{
+//			tmp *= j;
+//		}
+//		sum += tmp;
+//	}
+//	printf("%d", sum);
+//	return 0;
+//}
