@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+
+int main()
+{
+	int n = 0;
+	int a = 0;
+	int arr[] = { 0 };
+	while (scanf("%d", &n)!=EOF)
+	{
+		int c = 0;
+		c = n;
+		arr[c] = n;
+		a++;
+	}
+	for (int i = 0;i < a;i++)
+	{
+		if (arr[i] == 0)
+		{
+			printf("%d", i);
+			break;
+		}
+	}
+	return 0;
+}
