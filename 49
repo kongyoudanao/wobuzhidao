@@ -1,0 +1,23 @@
+#pragma once
+#define _CRT_SECURE_NO_WARNINGS 1
+//#define N 10000
+typedef int SLDataType;
+#include<stdio.h>
+#include<stdlib.h>
+
+////静态顺序表
+//typedef struct SeqList
+//{
+//	SLDataType a[N];
+//	int size;//表示数组中存储了多少个数据
+//}SL;
+//
+////接口函数
+//void SeqListInit(SL* PS);
+//
+////静态特点；如果满了就不给插入了
+////缺点；不知道多少合适   N给小了不够用 给大了浪费
+//void SeqListPushBack(SL* ps, SLDataType x);
+//void SeqListPopBack(SL* ps);
+//void SeqListPushFront(SL* ps, SLDataType x);
+//void SeqListPopFront(SL* ps);
