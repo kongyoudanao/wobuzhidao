@@ -1,0 +1,182 @@
+#pragma once
+#define _CRT_SECURE_NO_WARNINGS 1
+//#define N 10000
+typedef int SLDataType;
+#include<stdio.h>
+#include<stdlib.h>
+#include<assert.h>
+
+////静态顺序表
+//typedef struct SeqList
+//{
+//	SLDataType a[N];
+//	int size;//表示数组中存储了多少个数据
+//}SL;
+//
+////接口函数
+//void SeqListInit(SL* PS);
+//
+////静态特点；如果满了就不给插入了
+////缺点；不知道多少合适   N给小了不够用 给大了浪费
+//void SeqListPushBack(SL* ps, SLDataType x);
+//void SeqListPopBack(SL* ps);
+//void SeqListPushFront(SL* ps, SLDataType x);
+//void SeqListPopFront(SL* ps);
+
+//动态顺序表
+typedef struct SeqList
+{
+	SLDataType *a;//动态开辟的数组
+	int size;//表示数组中存储了多少个数据
+	int capacity;//表示实际能存数据的空间容量是多大
+}SL;
+
+//接口函数
+void SeqListInit(SL* ps);
+void SeqListDestory(SL* ps);
+void SeqListCheckCapacit(SL* ps);
+void SeqListPushBack(SL* ps, SLDataType x);
+void SeqListPopBack(SL* ps);
+void SeqListPushFront(SL* ps, SLDataType x);
+void SeqListPopFront(SL* ps);
+void SeqListPrint(SL* ps);
+
+
+
+
+
+#include"SeqList.h"
+
+void SeqListPrint(SL* ps)
+{
+	for (int i = 0;i < ps->size;i++)
+	{
+		printf("%d ", ps->a[i]);
+	}
+	printf("\n");
+}
+void SeqListInit(SL* ps) 
+{
+	ps->a = NULL;
+	ps->size = ps->capacity = 0;
+}
+void SeqListDestory(SL* ps)
+{
+	free(ps->a);
+	ps->a = NULL;
+	ps->capacity = ps->size = 0;
+}
+void SeqListCheckCapacit(SL* ps)
+{
+	//如果没有空间或者空间不足我们就扩容
+	if (ps->size == ps->capacity)
+	{
+		int newcapacity = ps->capacity == 0 ? 4 : ps->capacity * 2;
+		SLDataType* tmp = (SLDataType*)realloc(ps->a, newcapacity * sizeof(SLDataType));
+		if (tmp == NULL)
+		{
+			printf("realloc fail\n");
+			exit(-1);
+		}
+		ps->a = tmp;
+		ps->capacity = newcapacity;
+	}
+}
+//顺序表的尾插
+void SeqListPushBack(SL* ps, SLDataType x)
+{
+	//如果没有空间或者空间不足我们就扩容
+	SeqListCheckCapacit(ps);
+
+	ps->a[ps->size] = x;
+	ps->size++;
+}
+//顺序表的尾删
+void SeqListPopBack(SL* ps)
+{
+	//if (ps->size > 0)
+	//{
+	//	//ps->a[ps->size - 1] = 0;
+	//	ps->size--;
+	//}
+	assert(ps->size > 0);
+	ps->size--;
+}
+//顺序表的的头插
+void SeqListPushFront(SL* ps, SLDataType x)
+{
+	//如果没有空间或者空间不足我们就扩容
+	SeqListCheckCapacit(ps);
+	//挪动数据
+	int end = ps->size - 1;
+	while (end >= 0)
+	{
+		ps->a[end + 1] = ps->a[end];
+		end--;
+	}
+	ps->a[0] = x;
+	ps->size++;
+}
+void SeqListPopFront(SL* ps) 
+{
+	assert(ps->size > 0);
+	int begin = 1;
+	while (begin<ps->size)
+	{
+		ps->a[begin - 1] = ps->a[begin];
+		++begin;
+	}
+	ps->size--;
+}
+
+
+
+
+#include"SeqList.h"
+
+void TestSeqList1()
+{
+	SL sl;
+	SeqListInit(&sl);
+	SeqListPushBack(&sl, 1);
+	SeqListPushBack(&sl, 2);
+	SeqListPushBack(&sl, 3);
+	SeqListPushBack(&sl, 4);
+	SeqListPushBack(&sl, 5);
+	
+	SeqListPrint(&sl);
+
+	SeqListPopBack(&sl);
+	SeqListPopBack(&sl);
+	SeqListPrint(&sl);
+
+	SeqListDestory(&sl);
+}
+void TestSeqList2()
+{
+	SL sl;
+	SeqListInit(&sl);
+	SeqListPushBack(&sl, 1);
+	SeqListPushBack(&sl, 2);
+	SeqListPushBack(&sl, 3);
+	SeqListPushBack(&sl, 4);
+	SeqListPushBack(&sl, 5);
+
+	SeqListPrint(&sl);
+
+	SeqListPushFront(&sl, 10);
+	SeqListPushFront(&sl, 20);
+
+	SeqListPrint(&sl);
+
+	SeqListPopFront(&sl);
+
+	SeqListPrint(&sl);
+
+}
+int main()
+{
+	TestSeqList1();
+	TestSeqList2();
+	return 0;
+}
