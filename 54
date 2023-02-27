@@ -1,19 +1,19 @@
-sadasd
-asdasdasd
+#pragma once
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<assert.h>
 
-asd
+typedef int SLDateType;
 
+typedef struct SListNode
+{
+	SLDateType data;
+	struct SListNode* next;
+}SLTNode;
 
-asd
-
-
-
-asd
-
-
-asd
-
-
-sdsd
-
-dsd
+void SListPrintf(SLTNode* phead);
+void SListPushBack(SLTNode** pphead, SLDateType x);
+void SListPushFront(SLTNode** pphead, SLDateType x);
+void SListPopBack(SLTNode** pphead);
+void SListPopFront(SLTNode** pphead);
