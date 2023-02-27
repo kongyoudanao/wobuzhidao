@@ -17,3 +17,139 @@ void SListPushBack(SLTNode** pphead, SLDateType x);
 void SListPushFront(SLTNode** pphead, SLDateType x);
 void SListPopBack(SLTNode** pphead);
 void SListPopFront(SLTNode** pphead);
+
+#include"SList.h"
+
+SLTNode* BuyListNode(SLDateType x)
+{
+	SLTNode* newnode = (SLTNode*)malloc(sizeof(SLTNode));
+	if (newnode == NULL)
+	{
+		printf("malloc fail\n");
+		exit(-1);
+	}
+	newnode->data = x;
+	newnode->next = NULL;
+
+	return newnode;
+}
+void SListPrint(SLTNode* phead)
+{
+	SLTNode* cur = phead;
+	while (cur != NULL)
+	{
+		printf("%d->", cur->data);
+		cur = cur->next;
+	}
+}
+void SListPushBack(SLTNode** pphead, SLDateType x)
+{
+	SLTNode* newnode = BuyListNode(x);
+	newnode->data = x;
+	newnode->next = NULL;
+
+	if (*pphead == NULL)
+	{
+		*pphead = newnode;
+	}
+	else
+	{
+		//找到尾节点
+
+		SLTNode* tail = *pphead;
+		while (tail->next != NULL)
+		{
+			tail = tail->next;
+		}
+		tail->next = newnode;
+	}
+
+}
+void SListPushFront(SLTNode** pphead, SLDateType x)
+{
+	SLTNode* newnode = BuyListNode(x);
+
+	newnode->next = *pphead;
+	*pphead = newnode;
+}
+void SListPopBack(SLTNode** pphead)
+{
+	//1.
+	assert(*pphead != NULL);
+	if ((*pphead)->next == NULL)
+	{
+		free(*pphead);
+		*pphead = NULL;
+	}
+	else
+	{
+		SLTNode* prev = NULL;
+		SLTNode* tail = *pphead;
+		while (tail->next != NULL)
+		{
+			prev = tail;
+			tail - tail->next;
+		}
+		free(tail);
+		tail = NULL;
+		prev->next = NULL;
+		//2.
+	/*SLTNode* tail = *pphead;
+	while (tail->next->next)
+	{
+		tail = tail->next;
+	}
+	free(tail);
+	tail->next = NULL;*/
+	}
+	
+	
+}
+void SListPopFront(SLTNode** pphead)
+{
+	assest(*pphead != NULL);
+	SLTNode* next = (*pphead)->next;
+	free(*pphead);
+	*pphead = next;
+}
+
+#include"SList.h"
+
+void TestSList1()
+{
+	SLTNode* plist = NULL;
+	SListPushBack(&plist, 1);
+	SListPushBack(&plist, 2);
+	SListPushBack(&plist, 3);
+	SListPushBack(&plist, 4);
+
+	SListPrint(plist);
+}
+void TestSList2()
+{
+	SLTNode* plist = NULL;
+
+	SListPushFront(&plist, 1);
+	SListPushFront(&plist, 2);
+	SListPushFront(&plist, 3);
+	SListPushFront(&plist, 4);
+
+	SListPrint(plist);
+
+
+	SListPopBcak(&plist);
+	SListPopBcak(&plist);
+	SListPopBcak(&plist);
+	SListPopBcak(&plist);
+
+	SListPopFront(&plist);
+	SListPopFront(&plist);
+	SListPopFront(&plist);
+	SListPopFront(&plist);
+}
+int main()
+{
+	TestSList1();
+	TestSList2();
+	return 0;
+}
