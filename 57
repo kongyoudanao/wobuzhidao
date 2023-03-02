@@ -1,1 +1,28 @@
-你猜我猜你猜不猜我猜你猜我猜不猜你猜不猜我猜不猜
+struct ListNode*removeElements(struct ListNode*head,int val)
+{
+	struct ListNode* prev = NULL, * cur = head;
+	while (cur)
+	{
+		if (cur->val == val) 
+		{
+			if (cur == head)
+			{
+				head = cur->next;
+				free(cur);
+				cur = head;
+			}
+			else
+			{ 
+				prev->next = cur->next;
+				free(cur);
+				cur = prev->next;
+			}
+		}
+		else
+		{
+			prev = cur;
+			cur = cur->next;
+		}
+	}
+	return head;
+};
