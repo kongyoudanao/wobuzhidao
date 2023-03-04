@@ -1,0 +1,53 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+//int main()
+//{
+//	struct ListNode* cur = head;
+//	struct ListNode* newhead = NULL;
+//	while (cur)
+//	{
+//		struct ListNode* next = cur->next;
+//		//头插
+//		cur->next = newhead;
+//		newhead = cur;
+//		//迭代走
+//		cur = next;
+//	}
+//	return newhead;
+//}
+//class Partiton
+//{
+//public:
+//	ListNode* partition(ListNode* pHead, int x)
+//	{
+//		sturct ListNode* lesshead, * lesstail, * greaterhead, * greatertail;
+//		lesshead = lesstail = (struct ListNode*)malloc(sizeof(struct ListNode));
+//		lesstail->next=NULL;
+//		greaterhead = greatertail = (struct ListNode*)malloc(sizeof(struct ListNode));
+//		greatertail->next=NULL;
+//		struct ListNode* cur = pHead;
+//		while (cur)
+//		{
+//			if (cur->val < x) {
+//				lesstail->next = cur;
+//				lesstail = cur;
+//			}
+//			else
+//			{
+//				greatertail->next = cur;
+//				greatertail = cur;
+//			}
+//			cur = cur->next;
+//		}
+//		lesstail->next = greaterhead->next;
+//		greatertail->next = NULL;
+//		
+//		struct ListNode* newhead = lesshead->next;
+//		free(lesshead);
+//		free(greaterhead);
+//
+//		return newhead;
+//	}
+//};
