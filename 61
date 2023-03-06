@@ -1,0 +1,36 @@
+//链表带环
+////struct ListNode* slow = head, * fast = head;
+////while (fast && fast->next)
+////{
+////	slow = slow->next;
+////	fast = fast->next->next;
+////	if (slow == fast)
+////	{
+////		return ture;
+////	}
+////}
+////return false;
+//
+////延伸问题
+////1.会不会永远不会相遇
+////2.fast能不能走n步
+//
+//
+////如何找环的入口点
+//struct ListNode* slow = head, * fast = head;
+//while (fast&&fast->next)
+//{
+//	slow = slow->next;
+//	fast = fast->next->next;
+//	if (slow == fast)
+//	{
+//		struct ListNode* meet = slow;
+//		while (meet!=head)
+//		{
+//			meet = ->next;
+//			head = ->nest;
+//		}
+//		return meet;
+//	}
+//}
+//return NULL;
