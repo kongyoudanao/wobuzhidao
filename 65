@@ -1,0 +1,13 @@
+//在pos位置删除
+void ListErase(LTNode* pos)
+{
+	assert(pos);
+
+	LTNode* posPrev = pos->prev;
+	LTNode* posNext = pos->next;
+
+	posPrev->next = posNext;
+	posNext->prev = posPrev;
+	
+	free(pos);
+}
