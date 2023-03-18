@@ -1,0 +1,34 @@
+#pragma once
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<assert.h>
+
+typedef struct {
+	float realpart;
+	float imagpart;
+}Complex;
+
+void assign(Complex* A, float real, float imag);//赋值
+void add(Complex* C, Complex A, Complex B);
+void minus(Complex* A, float real, float imag);
+void multiply(Complex* A, float real, float imag);
+void divide(Complex* A, float real, float imag);
+#include"Practice.h"
+
+void assign(Complex* A, float real, float imag)
+{
+	assert(A);
+	A->realpart = real;
+	A->imagpart = imag;
+}
+
+void add(Complex* C, Complex A, Complex B)
+{
+	C->realpart = A.realpart + B.realpart;
+	C->imagpart = A.imagpart + B.imagpart;
+}
+void minus(Complex* A, float real, float imag);
+void multiply(Complex* A, float real, float imag);
+void divide(Complex* A, float real, float imag);
