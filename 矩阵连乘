@@ -1,0 +1,35 @@
+void MatrixChain(int* p, int n, int** m, int** s)
+{
+	for (int i = 0;i <= n;i++)
+	{
+		m[i][i] = 0;
+	}
+	for (int r = 2;r <= n;r++)//规模从2个到n个
+	{
+		for (int i = 1;i <= n - r + 1;i++)//有多少个这样的规模
+		{
+			int j = i + r - 1;
+			m[i][j] = m[i + 1][j] + p[i - 1] * p[i] * p[j];//规模为2的话就是相邻的两个矩阵相乘   例如A1是30*35  A2是35*15  结果就是30*35*15
+			s[i][j] = i;//用来记录在哪断开的  规模为2没什么可记的
+			for (int k = i + 1;k < j;k++)//在他们中间断开一个一个断 例如 123  断开 就是  12  3   / 1   23两种结果算哪一个小，小的记录
+			{
+				int t = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];//从i乘到k，再从k+1乘到j
+				if (t < m[i][j])
+				{
+					m[i][j] = t;
+					s[i][j] = k;
+				}
+			}
+		}
+	}
+}
+void Traceback(int i, int j, int** s)
+{
+	if (i == j)
+	{
+		return;
+	}
+	Traceback(i, s[i][j], s);
+	Traceback(s[i][j] + 1, i, s);
+	
+}
