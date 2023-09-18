@@ -1,0 +1,22 @@
+//动态规划递归式
+//b[j]=MAX{b[j-1]+a[j],a[j]}
+int MaxSum(int n, int* a)
+{
+	int sum = 0, b = 0;
+	for (int i = 1;i <= n;i++)
+	{
+		if (b > 0)
+		{
+			b += a[i];
+		}
+		else
+		{
+			b = a[i];
+		}
+		if (b > sum)
+		{
+			sum = b;
+		}
+	}
+	return sum;
+}
