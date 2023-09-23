@@ -1,0 +1,14 @@
+void Loading(int x[], Type w[], Type c, int n)
+{
+	int* t = new int[n + 1];//意思是创建一个动态数组有n+1个元素
+	Sort(w, t, n);//排序从小到大
+	for (int i = 1;i <= n;i++)
+	{
+		x[i] = 0;
+	}
+	for (int i = 1;i <= n && w[t[i]] <= c;i++)
+	{
+		x[t[i]] = 1;
+		c -= w[t[i]];
+	}
+}
