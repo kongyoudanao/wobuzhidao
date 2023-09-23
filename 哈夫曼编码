@@ -1,0 +1,73 @@
+typedef struct HuffmanNode
+{
+	int weight;
+	char id;
+	struct HuffmanNode* left;
+	struct HuffmanNode* right;
+}HuffmanNode;
+
+void sort_w(HuffmanNode* qu[], int f, int r)//相当于快排的变种，f是左范围，r是右范围
+{
+	HuffmanNode* s;
+	int i = f, j = r;
+	if (f < r)
+	{
+		s = qu[f];
+		while (i<j)
+		{
+			while (j > i && qu[j]->weight >= s->weight)
+			{
+				--j;
+			}
+			if (i < j)
+			{
+				qu[i] = qu[j];
+				i++;
+			}
+			while (i < j && qu[i]->weight < s->weight)
+			{
+				i++;
+			}
+			if (i < j)
+			{
+				qu[j] = qu[i];
+				--j;
+			}
+		}
+		qu[i] = s;
+		sort_w(qu, f, i - 1);
+		sort_w(qu, i+1, r);
+	}
+}
+HuffmanNode* HuffmanTree(int node[], char name[], int n)//node[]是频率。name是字母的名字。n是个数
+{
+	HuffmanNode* qu[MaxSize], * s, * p, * q;//队列
+	int rear = 0, front = 0;//队头 和对尾
+
+	for (int i = 0;i < n;i++)
+	{
+		s = (HuffmanNode*)malloc(sizeof(HuffmanNode));//结构体必须写的，开辟空间
+		s->weight = node[i];
+		s->id = name[i];
+		s->left = NULL;
+		s->right = NULL;
+		rear = (rear + 1) % MaxSize;
+		qu[rear] = s;
+	}
+	sort_w(qu, front + 1, rear);
+
+	while (rear != front + 1)
+	{
+		p = qu[++front];
+		q = qu[++front];
+
+		s = (HuffmanNode*)malloc(sizeof(HuffmanNode));
+		s->left = p;
+		s->right = q;
+		s->weight = p->weight + q->weight;
+		rear = (rear + 1) % MaxSize;
+		qu[rear] = s;
+		sort_w(qu, front + 1, rear);
+	}
+	return qu[rear];
+}
