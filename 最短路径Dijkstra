@@ -1,0 +1,112 @@
+//不是书上的
+typedef struct VexNode
+{
+	int no;
+}VexNode;
+
+typedef struct MGragh
+{
+	int edges[MaxSize][MaxSize];
+	int v, e;
+	VexNode vex[MaxSize];
+}MGragh;
+
+int edges[5][5] =
+{
+	max,10,max,30,100,
+	max,max,50,max,max,
+	max,max,max,max,10,
+	max,max,20,max,60,
+	max,max,max,max,max
+};
+
+void Dijkstra(MGragh g, int v, int dist[], int path[])//g是图的变量，v是纳入的顶点，dist记录点之间最短距离，path最短经过那个顶点
+{
+	int set[MaxSzie];//记录纳入的点
+	int u;
+	//初始化数组
+	for (int i = 0;i < g.v;i++)
+	{
+		dist[i] = g.edges[v][i];//纳入点v的行
+		set[i] = 0;
+		if (dist[i] < max)
+		{
+			path[i] = v;//记与v联通的
+		}
+		else
+		{
+			path[i] = -1;//不连通
+		}
+	}
+	set[v] = 1;//纳入点v记为纳入
+
+	//正式
+	for (int i = 0;i < g.v;i++)
+	{
+		int temp = max;
+		//找联通的最短的路径
+		for (int j = 0;j < g.v;++j)
+		{
+			if (!set[j] && dist[j] < temp)//没纳入且联通的点
+			{
+				u = j;//记录最短的点
+				temp = dist[j];//记录最小路径
+			}
+		}
+		set[u] = 1;//经过上面的查找对比确定最短的点
+		
+		//
+		for (int j = 0;j < g.v;j++)
+		{
+			if (!set[j] && dist[j] > g.edges[u][j] + dist[u])//找没纳入且上一个纳入点所联通的点
+			{
+				dist[j] = g.edges[u][j] + dist[u];//更新最短路径长度
+				path[j] = u;
+			}
+		}
+	}
+}
+
+
+
+
+//书上的
+//G(V,E)是带权有向图 V{1，2，3，4，5....n}是顶点集合
+//顶点v是源点  c是二维数组 c[i][j]表示边(i,j)的权  当(i,j)不属于E的时候c[i][j]是无穷大  dist[i]表示当前从源点到顶点i的最短特殊路径长度
+
+void Dijkstra(int n, int v, Type dist[], int prev[], Type** c)
+{
+	bool s[maxint];
+	for (int i = 1;i <= n;i++)
+	{
+		dist[i] = c[v][i];
+		s[i] = false;
+		if (dist[i] == maxin)
+		{
+			prev[i] = 0;
+		}
+		else
+		{
+			prev[i] = v;
+		}
+	}
+	dist[v] = 0;
+	s[v] = true;
+	for (int i = 1;i < n;i++)
+	{
+		int temp = maxint;
+		int u = v;
+		for (int j = 1;j <= n;j++)
+		{
+			if ((!s[j]) && (dist[j] < temp))
+			{
+				Type newdist = dist[u] + c[u][i];
+				if (newdist < dist[j])
+				{
+					dist[j] = newdist;
+					prev[j] = u;
+				}
+			}
+		}
+	}
+}
