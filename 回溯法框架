@@ -1,0 +1,61 @@
+//回溯算法的递归回溯框架
+void Backtrack(int t)//t开始赋值为1,t代表了要扩展的下一行，赋值为1就是t=0行，
+{
+	if (t > n)//n是控制递归的深度，t若大于n代表这个t是t+1层真正的层数是n层是对于二叉树来说是叶子节点
+	{
+		Output(x);//输出这个值是一个解
+	}
+	else//除了叶子节点以外的节点
+	{
+		for (int i = f(n, t);i <= g(n, t);i++)//f(n,t)代表了左分支的编号，g(n,t)代表了右分支的编号
+		{
+			x[t] = h(i);
+			if (Constraint(t) && Bound(t))//通过约束函数和限界函数判断生成的孩子节点是否满足要求
+			{
+				Backtrack(t + 1);
+			}
+		}
+	}
+}
+
+
+//回溯法搜索子集树的一般算法框架
+void Backtrack(int t)//t开始赋值为1,t代表了要扩展的下一行，赋值为1就是t=0行，
+{
+	if (t > n)//n是控制递归的深度，t若大于n代表这个t是t+1层真正的层数是n层是对于二叉树来说是叶子节点
+	{
+		Output(x);//x是数组确定那个被选了选了是1没选是0
+	}
+	else
+	{
+		for (int i = 0;i <= 1;i++)//控制一下选美选左是选了又是没选
+		{
+			x[t] = i;//数组x
+			if (Constraint(t) && Bound(t))
+			{
+				Backtrack(t + 1);//推到下一层
+			}
+		}
+	}
+}
+
+//用回溯法搜索排列树的算法框架
+void Backtrack(int t)
+{
+	if (t > n)
+	{
+		Output(x);
+	}
+	else
+	{
+		for (int i = t;i <= n;i++)
+		{
+			Swap(x[t], x[i]);//交换把i换到第t位
+			if (Constraint(t) && Bound(t))
+			{
+				Backtrack(t + 1);
+			}
+			Swap(x[t], x[i]);//再换回去
+		}
+	}
+}
