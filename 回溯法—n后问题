@@ -1,0 +1,44 @@
+//排列树算法  算法次数=4！=24
+//解向量：排列树（X1,X2....Xn)
+//显约束：任两皇后不同行不同列，X1，X2，....Xn是1，2，...n排列
+//隐约束：不处于同一正反对角线：|i-j|不等于|Xi-Xj|
+
+bool QueenPlace(int k)//判断是否处于同一正反对角线
+{
+	for (int j = 1;j < k;j++)
+	{
+		if (abs(k - j) == abs(x[j] - x[k]))
+		{
+			return false;
+		}
+		return true;
+	}
+}
+
+void QueenBacktrack(int t)
+{
+	if (t > n)
+	{
+		sum++;
+	}
+	else
+	{
+		for (int i = t;i <= n;i++)
+		{
+			Swap(x[t], x[i]);
+			if (QueenPlace(t))
+			{
+				QueenBacktrack(t + 1);
+			}
+			Swap(x[t], x[i]);
+		}
+	}
+}
+
+
+
+
+//n叉树算法    运算次数 4的4次幂
+//解向量：n叉树
+//显约束：任意两皇后不同行
+//隐约束：不同列，不同一正反对角线
