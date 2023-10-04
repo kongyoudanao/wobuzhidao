@@ -1,0 +1,50 @@
+
+
+
+
+
+//解空间：子集树
+//可行性约束：WiXi总和<C1
+//限界函数：bound函数
+
+//也就是背包问题的贪心算法
+int Bound(int i)//计算上界
+{
+	Typew cleft = c - cw;//剩余容量
+	Typep b = cp;//当前价值
+	//以物品单位重量价值递减序装入物品
+	while (i <= n && w[i] <= cleft)
+	{
+		cleft -= w[i];
+		b += p[i];
+		i++;
+	}
+	//装满背包
+	if (i <= n)
+	{
+		b += p[i] / w[i] * cleft;
+	}
+	return b;
+}
+
+void Bcaktrack(int i)
+{
+	if (i > n)
+	{
+		return bsetp = cp;
+	}
+	if (cw + w[i] <= c)//进入左子树
+	{
+		cw += w[i];//cw是已选的重量
+		cp += p[i];//cp是已选的价值
+		Bcaktrack(i + 1);
+		cw -= w[i];
+		cp -= p[i];
+	}
+	if (Bound(i + 1) > bestp)//进入右子树
+	{
+		Bcaktracki + 1;
+	}
+}
+
+
