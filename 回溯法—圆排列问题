@@ -1,0 +1,57 @@
+//解空间：排列树
+
+float Center(int t)//计算当前圆心的横坐标
+{
+	float temp = 0;
+	for (int j = 1;j < t;j++)
+	{
+		float valuex = x[j] + 2.0 * sqrt(r[t] * r[j]);
+		if (valuex > temp)
+		{
+			temp = valuex;
+		}
+	}
+	return temp;
+}
+
+void Compute(void)//计算当前圆排列的长度
+{
+	float low = 0, high = 0;
+	for (int i = 1;i <= n;i++)
+	{
+		if (x[i] - r[i] < low)
+		{
+			low = x[i] - r[i];
+		}
+		if (x[i] + r[i] > high)
+		{
+			high = x[i] + r[i];
+		}
+	}
+	if (high - low < min)
+	{
+		min = high - low;
+	}
+}
+
+void Backtrack(int t)
+{
+	if (t > n)
+	{
+		Compute();//与之前的值比较大小
+	}
+	else
+	{
+		for (int j = t;j <= n;j++)
+		{
+			Swap(r[t], r[j]);//Swap是交换t与j圆的位置   r[]是半径数组
+			float centerx = Center(t);//求圆心坐标
+			if (centerx + r[t] + r[1] < min)//下界函数
+			{
+				x[t] = centerx;//x[]是圆心数组
+				Backtrack(t + 1);
+			}
+			Swap(r[j], r[t]);
+		}
+	}
+}
