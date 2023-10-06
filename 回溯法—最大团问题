@@ -1,0 +1,38 @@
+//解空间：子集树
+//可行性约束：顶点i到已选入的顶点集中每一个顶点都有边相连
+//上界函数：有足够多的可选择顶点使得算法有可能在右子树中找到更大的团
+
+void Backtrack(int i)
+{
+	if (i > n)//到达叶子节点
+	{
+		for (int j = 1;j <= n;j++)
+		{
+			bestx[j] = x[j];//bestx是最大团所包含的顶点
+		}
+		return bestn = cn;//bestn最大团所包含顶点的个数
+	}
+
+	//检查顶点与当前团的链接
+	bool ok = true;
+	for (int j = 1;j <= i;j++)
+	{
+		if (x[j] == 1 && !a[i][j])//i与j不相连
+		{
+			ok = false;
+			break;
+		}
+	}
+	if (ok)//进入左子树
+	{
+		x[i] = 1;
+		cn++;
+		Backtrack(i + 1);
+		cn--;
+	}
+	if (cn + n - i > bestn)//进入又子树
+	{
+		x[i] = 0;
+		Backtrack(i + 1);
+	}
+}
