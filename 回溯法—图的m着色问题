@@ -1,0 +1,32 @@
+//解空间：n叉树   表示顶点X1,X2....Xn表示顶点i所着颜色Xi
+//可行性约束函数：顶点i与已着色的相邻顶点颜色不重复
+
+bool ok(int k)//检查颜色可用性
+{
+	for (int j = 1;j < k;j++)
+	{
+		if (a[k][j] && (x[j] == x[k]))
+		{
+			return false;
+		}
+	}
+	return true;
+}
+void Backtrack(int t)
+{
+	if (t > n)
+	{
+		sum++;//有多少种着色方案
+	}
+	else
+	{
+		for (int i = 1;i <= m;i++)
+		{
+			x[t] = i;
+			if (ok(t))
+			{
+				Backtrack(t + 1);
+			}
+		}
+	}
+}
