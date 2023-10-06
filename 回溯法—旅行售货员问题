@@ -1,0 +1,33 @@
+//解空间：排列树  
+//环路，可以指定一个点出发，走完n-1个城市剩最后一个城市，就不得不选了省了很多时间
+//算法就是    所选的小于总体的处理方式   和    所选等于n个时    这里的n是总体的前一个数，因为最后一个不得不选
+void TravelingBacktrack(int i)
+{
+	if (i == n)//其他的回溯法都是大于n    
+	{
+		if (a[x[n - 1]][x[n]] != Noedge && a[x[n]][1] != Noedge && (cc + a[x[n - 1]x[n]] + a[x[n]][1] < bestc || bestc == Noedge))//Noedge是无穷大  bestc是最短路径
+		{
+			for (int j = 1;j <= n;j++)
+			{
+				bestx[j] = x[j];
+				bestc = cc + a[x[n - 1]][x[n]] + a[x[n]][1];
+			}
+		}
+	}
+	else
+	{
+		for (int j = i;j <= n;j++)
+		{
+			//是否可进入x[j]子树
+			if (a[x[i - 1]][x[j]] != Noedge && (cc + a[x[i - 1]][x[j]] < bestc || bestc == Noedge))
+			{
+				//搜索子树
+				Swap(x[i], x[j]);
+				cc += a[x[i - 1]][x[i]];
+				TravelingBacktrack(i + 1);
+				cc -= a[x[i - 1]][x[i]];
+				Swap(x[i], x[j]);
+			}
+		}
+	}
+}
