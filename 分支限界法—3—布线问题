@@ -1,0 +1,78 @@
+//grid[i][j]=max（无穷）表示还是未布线的有效区域，-1表示无效区域，其他值表示布线步数
+struct Position
+{
+	int row, col;
+}*Ps;
+bool FindPath(Position start, Position finish, int& PathLen, Position* &path)
+{
+	//找到最短路径返回true 否则返回false
+	if ((start.row == finish.row) && (start.col == finish.col))
+	{
+		PathLen = 0;
+		return true;
+	}
+	//设置方格围墙
+	for (int i = 0;i <= m + 1;i++)
+	{
+		grid[0][i] = grid[n + 1][i] = -1;//grid[][]布线的电路板地图，n行，m列，-1是墙，最外层都是墙
+	}
+	for (int i = 0;i <= n;i++)
+	{
+		grid[i][0] = grid[i][m + 1] = -1;
+	}
+	//初始化相对位移
+	Position offset[4];
+	offset[0].row = 0;offset[0].col = 1;//右
+	offset[1].row = 1;offset[1].col = 0;//下
+	offset[2].row = 0;offset[2].col = -1;//左
+	offset[3].row = -1;offset[3].col = 0;//上
+	int NumOfNbrs = 4;//相邻方格数      也可以不写
+	Position Now, Next;
+	Now.row = start.row;
+	Now.col = start.col;
+	grid[start.row][start.col] = 0;//假设起点到起点的距离为0
+	while (true)
+	{
+		for (int i = 0;i < 4;i++)//NumOfNbrs = 4就是i的限制，所以说可以不写
+		{
+			Next.row = Now.row + offset[i].row;//更新活结点坐标
+			Next.col = Now.col + offset[i].col;
+			if (grid[Next.row][Next.col] > grid[Now.row][Now.col] + 1)//活结点有效
+			{
+				grid[Next.row][Next.col] = grid[Now.row][Now.col] + 1;//赋值活结点的步骤
+				if (Next.row == finish.row && Next.col == finish.col)//走到终点
+				{
+					break;//不需要求最短路径的话就    return true
+				}
+				Q.Add(Next);//加入活结点入队列
+			}
+		}
+		if (Q.IsEmpty())//队空无解
+		{
+			return false;
+		}
+		Q.Delete(Now);//取队首元素赋值给Now
+	}
+	//构造最短路径
+	PathLen = grid[finish.row][finish.col];
+	path = (Position)malloc(sizeof(Position));
+	//从目标位置finish开始回溯
+	Now = finish;
+	for (int j = PathLen - 1;j >= 0;j--)
+	{
+		path[j];//相当于记录节点的位置
+		//找前驱位置
+		for (int i = 0;i < 4;i++)
+		{
+			Next.row = Now.row + offset[i].row;
+			Next.col = Now.col + offset[i].col;
+			if (grid[Next.row][Next.col] == j)
+			{
+				break;
+			}
+			Now = Next;
+		}
+	}
+
+
+}
