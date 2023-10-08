@@ -1,0 +1,46 @@
+struct MinHeapNode//是自定义的结构体类型 
+{
+	int i;//顶点编号
+	int length;//当前路长，i到源点的路径长度
+};
+ 
+void Init()
+{
+	
+}
+void ShortestPanths(int v)
+{
+	int dist[] = {0};//用来存每个点到源点的最短路径值，dist[i]表示i到源点的最短路径值
+	for (int i = 1;i <= n;i++)
+	{
+		dist[i] = inf;//inf表示无穷大
+	}
+	MinHeap;//是优先队列，堆相关的知识点，存放的是MinHeapNode类型，是按照length从小到大排序的优先队列
+	MinHeapNode Now;
+	Now.i = v;
+	Now.length = 0;
+	dist[v] = 0;
+	while (1)
+	{
+		//优先队列出对的Node是Now，通过Now来更新其他值
+		for (int j = 1;j <= n;j++)
+		{
+			if (c[Now.i][j] < inf && (Now.length + c[Now.i][j] < dist[j]))//对于点j，原始的dist[j]值大于dist[now.i]+now.i到j的距离
+			{
+				//c[][]   c[i][j]存放的是i到j的边的权值，当两点不直接相连时，值为inf
+				dist[j] = Now.length + c[Now.i][j];//更新dist
+				//pre[]   pre 可以记录从源点到任意点的最短路径序列，pre[i]表示从源点到i的最短路径的上一个点
+				prev[j] = Now.i;//Now.i更新了dist[j]，也就是到j的最短路径序列上一个是Now.i
+				MinHeapNode Next;
+				Next.i = j;
+				Next.length = dist[j];
+				H.Insert(Next);//将更新后的节点放入优先队列
+			}
+		}
+		if (H.IsEmpty() == 1)//优先队列空则循环结束
+		{
+			break;
+		}
+		H.DeleMin(Now);//否则，上一个点Now的更新已经结束，出队新的队首元素，赋值给Now
+	}
+}
